@@ -1,0 +1,111 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #291e31;
+    color: #e5eca5
+}
+
+span {
+    font-weight: normal;
+}
+
+label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+input,
+.rating {
+    margin-bottom: 10px;
+}
+
+img {
+    height: 320px;
+    padding: 5px;
+    margin: 20px;
+    border: 2px dashed;
+    border-radius: 5px;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+h4 {
+    display: inline;
+}
+
+h5 {
+    margin-top: 2px;
+    font-size: 5%;
+}
+
+section textarea {
+    resize: none;
+    width: 95%;
+    height: 100px;
+    margin: 10px;
+    margin-left: 0;
+}
+
+button {
+    font-weight: bolder;
+    color: #e5eca5;
+    background-color: #8357a3;
+}
+
+input,
+textarea {
+    color: #e5eca5;
+    background-color: #1f1427
+}
+
+.rating>span,
+.total-rating {
+    font-size: 30px;
+    color: goldenrod
+}
+
+.rating>span:hover:before {
+    content: "★";
+    position: absolute;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+.rating>span:hover:before,
+.rating>span:hover~span:before {
+    content: "★";
+    position: absolute;
+}
+
+#container {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    width: 95%
+}
+
+#info-display {
+    display: grid;
+}
+
+#desc {
+    margin: 0;
+}
+
+#other-reviews div {
+    border: 2px dashed #e5eca5;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#other-reviews {
+    font-style: italic;
+}
+
+#rating-container {
+    justify-content: right;
+}

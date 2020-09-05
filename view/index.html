@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <script src="../dist/app.js" defer></script>
+    <title>Review This Product - Robosapien X</title>
+</head>
+
+<body>
+    <h1>Wowee Robosapien X</h1>
+    <section id="container">
+        <img src="/images/robosapien.jpg" alt="Robosapien X" />
+        <div id="info-display">
+            <h2>Price: <span>$255.00</span></h2>
+            <div class="total-rating">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+            <div>
+                <h4>Dscription: </h4>
+                <p id="desc">
+                    Kids and adults can both have a blast with their very own robot with the Wow Wee Robosapien X. This fully functioning robot stands 14 inches tall and was designed by a NASA scientist. All he needs to get started is just a touch of the infrared dongle
+                    and off he goes. This Wow Wee robot is compatible with both iOS and Android operating systems. There are multiple program modes you can use for different functions, and it can be controlled with a remote so you don't have to keep following
+                    him around. Robosapien X can move quickly and is designed with an interface that is easy to access. People both young and old will get a kick out of this unique robot.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <form action="javascript:postReview();">
+            <h3>Review this product:
+                <div class="rating"><label>:Rating</label>
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+            </h3>
+            <label for="name">Name (required):</label>
+            <input type="text" id="name" required>
+            <div id="rating-container">
+            </div>
+            <label for="summary">Short Comment:</label>
+            <input type="text" id="summary">
+            <label for="review-box3">Review:</label>
+            <textarea id="review-box" placeholder="Let us know what you think!"></textarea>
+            <button type="submit" id="form-btn">Post Review</button>
+        </form>
+        <h2>User Reviews:</h2>
+        <section id="other-reviews">
+
+        </section>
+    </section>
+
+    <template id="tmp-comment">
+
+    </template>
+</body>
+
+</html>
