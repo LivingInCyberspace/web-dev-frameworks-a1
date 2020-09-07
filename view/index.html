@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
-    <script src="../dist/app.js" defer></script>
+    <link href="..\style\style.css" rel="stylesheet" type="text/css">
+    <script src="..\dist\app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Review This Product - Robosapien X</title>
 </head>
 
 <body>
     <h1>Wowee Robosapien X</h1>
     <section id="container">
-        <img src="/images/robosapien.jpg" alt="Robosapien X" />
+        <img src="../img/robosapien.jpg" alt="Robosapien X" id="poster" />
         <div id="info-display">
             <h2>Price: <span>$255.00</span></h2>
-            <div class="total-rating">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            <h4>Rating:</h4>
+            <div id="total-rating">
             </div>
             <div>
-                <h4>Dscription: </h4>
+                <h4>Dscription:</h4>
                 <p id="desc">
                     Kids and adults can both have a blast with their very own robot with the Wow Wee Robosapien X. This fully functioning robot stands 14 inches tall and was designed by a NASA scientist. All he needs to get started is just a touch of the infrared dongle
                     and off he goes. This Wow Wee robot is compatible with both iOS and Android operating systems. There are multiple program modes you can use for different functions, and it can be controlled with a remote so you don't have to keep following
@@ -29,19 +30,32 @@
         </div>
     </section>
     <section>
-        <form action="javascript:postReview();">
-            <h3>Review this product:
-                <div class="rating"><label>:Rating</label>
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                </div>
-            </h3>
-            <label for="name">Name (required):</label>
+        <form id="form" action="javascript:ReviewManager.processReview();">
+            <h2 id="review">Review this product:</h2>
+            <div>
+                <label for="rating">Rating <span id="required-label">(required)</span></label>
+                <span class="star-cb-group">
+                    <input type="radio" id="rating-5" name="rating" value="5" />
+                    <label for="rating-5"></label>
+                    <input type="radio" id="rating-4" name="rating" value="4" />
+                    <label for="rating-4"><img src="../img/star.png" alt="★" /></label>
+                    <input type="radio" id="rating-3" name="rating" value="3" />
+                    <label for="rating-3"><img src="../img/star.png" alt="★" /></label>
+                    <input type="radio" id="rating-2" name="rating" value="2" />
+                    <label for="rating-2"><img src="../img/star.png" alt="★" /></label>
+                    <input type="radio" id="rating-1" name="rating" value="1" />
+                    <label for="rating-1"><img src="../img/star.png" alt="★" /></label>
+                    <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" />
+                    <label for="rating-0"><img src="../img/star.png" alt="★" /></label>
+                  </span>
+            </div>
+            <label for="name">Name <span id="required-label">(required)</span></label>
             <input type="text" id="name" required>
             <div id="rating-container">
             </div>
-            <label for="summary">Short Comment:</label>
+            <label for="summary">Short Summary:</label>
             <input type="text" id="summary">
-            <label for="review-box3">Review:</label>
+            <label for="review-box">Review:</label>
             <textarea id="review-box" placeholder="Let us know what you think!"></textarea>
             <button type="submit" id="form-btn">Post Review</button>
         </form>

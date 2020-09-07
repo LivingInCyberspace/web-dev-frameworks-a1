@@ -1,3 +1,10 @@
+:root {
+    --star-font-size: 20px;
+    --star: url(../img/star.png);
+    --star-half: url(../img/star-half.png);
+    --star-empty: url(../img/star-empty.png);
+}
+
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #291e31;
@@ -19,14 +26,6 @@ input,
     margin-bottom: 10px;
 }
 
-img {
-    height: 320px;
-    padding: 5px;
-    margin: 20px;
-    border: 2px dashed;
-    border-radius: 5px;
-}
-
 h2 {
     text-decoration: underline;
 }
@@ -38,14 +37,6 @@ h4 {
 h5 {
     margin-top: 2px;
     font-size: 5%;
-}
-
-section textarea {
-    resize: none;
-    width: 95%;
-    height: 100px;
-    margin: 10px;
-    margin-left: 0;
 }
 
 button {
@@ -60,26 +51,84 @@ textarea {
     background-color: #1f1427
 }
 
-.rating>span,
-.total-rating {
-    font-size: 30px;
-    color: goldenrod
-}
 
-.rating>span:hover:before {
-    content: "★";
-    position: absolute;
-}
+/* NOTE FOR PROFESSOR: Based off Ashfaq Ahmed's CSS rating system */
 
-.rating {
+.star-cb-group {
+    /* remove inline-block whitespace */
+    font-size: 0;
+    /* flip the order so we can use the + and ~ combinators */
     unicode-bidi: bidi-override;
     direction: rtl;
+    /* the hidden clearer */
 }
 
-.rating>span:hover:before,
-.rating>span:hover~span:before {
-    content: "★";
-    position: absolute;
+.star-cb-group * {
+    font-size: 1rem;
+}
+
+.star-cb-group>input {
+    display: none;
+}
+
+.star-cb-group>input+label {
+    /* only enough room for the star */
+    display: inline-block;
+    overflow: hidden;
+    text-indent: 9999px;
+    width: 1.3em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.star-cb-group>input+label:before {
+    display: inline-block;
+    text-indent: -9999px;
+    font-size: var(--star-font-size);
+    content: var(--star-empty);
+    color: #888;
+}
+
+.star-cb-group>input:checked~label:before,
+.star-cb-group>input+label:hover~label:before,
+.star-cb-group>input+label:hover:before {
+    content: var(--star);
+    font-size: var(--star-font-size);
+    color: #ffd900;
+    text-shadow: 0 0 1px #333;
+}
+
+.star-cb-group>.star-cb-clear+label {
+    text-indent: -9999px;
+    width: .5em;
+    margin-left: -.5em;
+}
+
+.star-cb-group>.star-cb-clear+label:before {
+    width: .5em;
+}
+
+.star-cb-group:hover>input+label:before {
+    content: var(--star-empty);
+    font-size: var(--star-font-size);
+    color: #888;
+    text-shadow: none;
+}
+
+.star-cb-group:hover>input+label:hover~label:before,
+.star-cb-group:hover>input+label:hover:before {
+    content: var(--star);
+    font-size: var(--star-font-size);
+    color: #ffd900;
+    text-shadow: 0 0 1px #333;
+}
+
+#poster {
+    height: 320px;
+    padding: 5px;
+    margin: 20px;
+    border: 2px dashed;
+    border-radius: 5px;
 }
 
 #container {
@@ -92,20 +141,66 @@ textarea {
     display: grid;
 }
 
+#review-score {
+    font-size: 80%;
+    color: grey;
+}
+
+#review-score>a {
+    text-decoration: none;
+    color: goldenrod;
+}
+
 #desc {
     margin: 0;
 }
+
+#summary {
+    width: 55%;
+}
+
+#review-box {
+    resize: none;
+    width: 95%;
+    height: 100px;
+    margin: 10px;
+    margin-left: 0;
+}
+
+
+/* review container */
 
 #other-reviews div {
     border: 2px dashed #e5eca5;
     padding: 10px;
     border-radius: 5px;
+    margin: 2px;
 }
 
-#other-reviews {
+
+/* review title */
+
+#other-reviews h5 {
+    font-size: 105%;
     font-style: italic;
+}
+
+
+/* review stars */
+
+#other-reviews .review-star {
+    color: goldenrod;
+    font-size: 105%;
 }
 
 #rating-container {
     justify-content: right;
+}
+
+#required-label {
+    content: "required";
+    font-size: 70%;
+    color: red;
+    position: relative;
+    bottom: 3px;
 }
